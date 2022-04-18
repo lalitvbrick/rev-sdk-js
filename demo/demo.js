@@ -53,7 +53,9 @@ export function init(formDefaults, render) {
 		storeParams(formDefaults);
 	});
 
-	setTimeout(renderInternal, 1000);
+	if (formValues.baseUrl && (formValues.webcastId || formValues.videoId)) {
+		setTimeout(renderInternal, 1000);
+	}
 
 	function renderInternal() {
 		render(syncFormData());
